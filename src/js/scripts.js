@@ -1,6 +1,9 @@
 const btn = document.querySelector('button');
 const champ = document.querySelector('p span'[0])
 
+const divsCountry = document.querySelector('div .country')
+const divs = document.getElementsByTagName('div')
+
 const COUNTRIES = [
   {
     country: 'CAT',
@@ -263,10 +266,6 @@ const COUNTRIES = [
 class Team {
   constructor(COUNTRIES) {
     this.COUNTRIES = COUNTRIES
-
-    this.COUNTRY_NAME = COUNTRIES.country
-    this.COUNTRY_GROUP = COUNTRIES.group
-    this.COUNTRY_SCORE = COUNTRIES.score
   }
 
   // This is where you get the top score within the countries
@@ -290,10 +289,11 @@ class Team {
       const max = (COUNTRIES[i].details.score * 100) / BEST_SCORE
 
       COUNTRIES[i].details.lastmotivation = Number(
-        Math.floor(Math.random() * (max - min + 1)) + min
+        ((Math.random() * (max - min + 1)) + min).toFixed(2)
       )
     }
   }
+
 };
 
 const country = new Team(COUNTRIES);
@@ -330,7 +330,7 @@ function predictMatch(a, b) {
 
   if (a[1] > b[1]) {
     return a;
-  } else {
+    } else {
     return b;
   }
 }
@@ -372,7 +372,7 @@ const thirdplace = predictMatch(thirdplaceContenders[0], thirdplaceContenders[1]
 // EVENT
 
 btn.addEventListener('click', (e) => {
-
+  
   country.getBestScore(COUNTRIES)
   console.log('OITAVAS :\n', groupList_A, groupList_B, groupList_C, groupList_D, groupList_E, groupList_F, groupList_G, groupList_H)
   console.log('QUARTAS: \n', quarter1, quarter2, quarter3, quarter4, quarter5, quarter6, quarter7, quarter8);
@@ -382,7 +382,15 @@ btn.addEventListener('click', (e) => {
   console.log('CHAMPION:\n', champion);
   console.log('SECOND PLACE:\n', secondplace);
   console.log('THIRD PLACE:\n', thirdplace)
-
+  
   champ.innerText += champion[0];
+  
+  
+  for (let i = 0; i < divs.length; i++) {
+    if (divs.classList.contains('country')) {
+      divs[i].innerText += groupList_A;
+    }    
+  }
+
 })
 
