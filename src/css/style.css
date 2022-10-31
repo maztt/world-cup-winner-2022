@@ -10,9 +10,24 @@ html {
   width: 1440px;
   margin: auto;
   margin-top: 15px;
+  background-image: url('../img/bg.jpg');
+  background-repeat: no-repeat;
+  background-position: top center;
 }
 
-#group-stage {
+
+.groups.a {
+  width: 150px;
+  height: 100px;
+  background-color: aqua;
+}
+
+.groups.a {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+} 
+
+/* #group-stage {
   display: flex;
   position: absolute;
 }
@@ -39,10 +54,10 @@ html {
   border-top-left-radius: 0px;
 }
 
-/* .groups::before {
+.groups::before {
   content: 'Group';
   border: 2px solid rgb(158, 10, 10);
-} */
+}
 
 #round-16 {
   display: flex;
@@ -54,14 +69,14 @@ html {
   flex-direction: column;
   margin-right: 700px;
   margin-left: 200px;
-  /* gap: 7px; */
+  gap: 7px;
 }
 
 #round-16 .right-side-contenders {
   display: flex;
   float: right;
   flex-direction: column;
-  /* gap: 7px; */
+  gap: 7px;
 }
 
 .qualified-16 {
@@ -84,7 +99,7 @@ html {
   flex-direction: column;
   margin-right: 500px;
   margin-left: 300px;
-  /* gap: 7px; */
+  gap: 7px;
 }
 
 #quarters .right-side-contenders {
@@ -113,7 +128,7 @@ html {
   flex-direction: column;
   margin-right: 350px;
   margin-left: 375px;
-  /* gap: 7px; */
+  gap: 7px;
 }
 
 #semi .right-side-contenders {
@@ -162,4 +177,4 @@ html {
 .groups.a {
   display: grid;
   grid-template-columns: 1fr 1fr;
-}
+} */

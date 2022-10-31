@@ -1,8 +1,10 @@
 const btn = document.querySelector('button');
 const champ = document.querySelector('p span'[0])
 
-const divsCountry = document.querySelector('div .country')
 const divs = document.getElementsByTagName('div')
+const spans = document.getElementsByTagName('span')
+const divsCountry = document.querySelectorAll('div .country')
+const divsGroups = document.querySelectorAll('div .groups') 
 
 const COUNTRIES = [
   {
@@ -325,6 +327,17 @@ const groupList_F = predictGroupStage(COUNTRIES, "F");
 const groupList_G = predictGroupStage(COUNTRIES, "G");
 const groupList_H = predictGroupStage(COUNTRIES, "H");
 
+const allGroupsList = [
+  groupList_A, 
+  groupList_B, 
+  groupList_C, 
+  groupList_D, 
+  groupList_E, 
+  groupList_F, 
+  groupList_G, 
+  groupList_H 
+]
+
 function predictMatch(a, b) {
   country.getMotivation(COUNTRIES)
 
@@ -369,6 +382,15 @@ const secondplace = winnerContenders.sort(function(a, b) {
 
 const thirdplace = predictMatch(thirdplaceContenders[0], thirdplaceContenders[1]);
 
+
+function ovo (div, letter) {
+  for (let i = 0; i < divsCountry.length; i++) {
+    divsCountry[letter].innerText = allGroupsList[letter][i][0];
+    console.log(allGroupsList[letter][i][0])
+    
+  }
+}
+
 // EVENT
 
 btn.addEventListener('click', (e) => {
@@ -384,13 +406,22 @@ btn.addEventListener('click', (e) => {
   console.log('THIRD PLACE:\n', thirdplace)
   
   champ.innerText += champion[0];
-  
-  
-  for (let i = 0; i < divs.length; i++) {
-    if (divs.classList.contains('country')) {
-      divs[i].innerText += groupList_A;
-    }    
-  }
 
-})
+
+  let countryIndex = 0;
+
+  for (let i = 0; i < divs.length; i++) {
+    if (divsGroups) {
+      groupCount++;
+    }
+
+    if (divs[i].classList.contains("groups")) {
+      ovo(divsGroups, countryIndex);
+      console.log(countryIndex)
+      countryIndex++;
+    }
+  };
+}
+
+)
 
