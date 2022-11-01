@@ -16,16 +16,28 @@ html {
 }
 
 
-.groups.a {
+.group {
   width: 150px;
   height: 100px;
   background-color: aqua;
 }
 
-.groups.a {
+.group {
   display: grid;
   grid-template-columns: 1fr 1fr;
-} 
+}
+
+#group-stage {
+  display: flex;
+  position: absolute;
+}
+
+#group-stage .right-side-contenders {
+  display: flex;
+  float: right;
+  flex-direction: column;
+  gap: 50px;
+}
 
 /* #group-stage {
   display: flex;

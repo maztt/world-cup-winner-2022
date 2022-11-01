@@ -383,13 +383,33 @@ const secondplace = winnerContenders.sort(function(a, b) {
 const thirdplace = predictMatch(thirdplaceContenders[0], thirdplaceContenders[1]);
 
 
-function ovo (div, letter) {
-  for (let i = 0; i < divsCountry.length; i++) {
-    divsCountry[letter].innerText = allGroupsList[letter][i][0];
-    console.log(allGroupsList[letter][i][0])
-    
-  }
+function groupStageDrawer (parentEl, groupIndex) {
+  // let count = 0;
+  // let countryIndex = 0;
+
+  let childEl = parentEl.firstElementChild
+
+  childEl.innerText = allGroupsList[groupIndex][0][0];
+
+  childEl.nextElementSibling.innerText = allGroupsList[groupIndex][1][0];
+
+  childEl.nextElementSibling.nextElementSibling.innerText = allGroupsList[groupIndex][2][0];
+
+  childEl.nextElementSibling.nextElementSibling.nextElementSibling.innerText = allGroupsList[groupIndex][3][0];
+
+
+  // for (let i = 0; i < divsCountry.length - 1; i++) {
+  //   childEl.nextElementSibling.innerText += allGroupsList[groupIndex][countryIndex][0];
+  //   console.log('hereA:', allGroupsList[groupIndex][countryIndex][0])
+  //   console.log('hereB:', allGroupsList[groupIndex][i][0])    
+  //   count++;
+  //   countryIndex++;
+
+  //   if (count == 3) {
+  //     return;
+  //   }
 }
+
 
 // EVENT
 
@@ -408,20 +428,15 @@ btn.addEventListener('click', (e) => {
   champ.innerText += champion[0];
 
 
-  let countryIndex = 0;
+
+  let groupCount = 0;
 
   for (let i = 0; i < divs.length; i++) {
-    if (divsGroups) {
+    if (divs[i].classList.contains("group")) {
       groupCount++;
+      groupStageDrawer(divs[i], groupCount - 1);
     }
+  }    
 
-    if (divs[i].classList.contains("groups")) {
-      ovo(divsGroups, countryIndex);
-      console.log(countryIndex)
-      countryIndex++;
-    }
-  };
-}
-
-)
+})
 
