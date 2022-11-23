@@ -15,18 +15,34 @@ html {
   background-position: top center;
 }
 
+.grid {
+  height: 900px;
+  grid-auto-flow: column;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  grid-template-areas:
+      "Area-1 Area-9 Area-17 Area-21 Area-25 Area-22 Area-18 Area-10 Area-2"
+      "Area-3 Area-11 Area-17 Area-21 Area-25 Area-22 Area-18 Area-12 Area-4"
+      "Area-5 Area-13 Area-19 Area-23 Area-26 Area-24 Area-20 Area-14 Area-6"
+      "Area-7 Area-15 Area-19 Area-23 Area-26 Area-24 Area-20 Area-16 Area-8";
+  -ms-grid-columns: 1.25fr 0px 0.75fr 0px 0.5fr 0px 0.5fr 0px 1fr 0px 0.5fr 0px 0.5fr 0px 0.75fr 0px 1.25fr;
+  grid-template-columns: 1.25fr 0.75fr 0.5fr 0.5fr 1fr 0.5fr 0.5fr 0.75fr 1.25fr;
+  -ms-grid-rows: 285px 0px auto 0px auto 0px auto;
+  grid-template-rows: 285px auto auto auto;
+}
+
+
+
 
 .group {
   width: 150px;
   height: 100px;
   background-color: aqua;
   position: absolute;
-}
-
-.group {
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
+
 
 #group-stage {
   display: flex;

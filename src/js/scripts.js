@@ -266,15 +266,15 @@ const COUNTRIES = [
 ];
 
 class Team {
-  constructor(COUNTRIES) {
-    this.COUNTRIES = COUNTRIES
+  constructor(countries) {
+    this.countries = countries
   }
 
   // This is where you get the top score within the countries
   getBestScore() {
     const COUNTRIES_SCORES = []
 
-    this.COUNTRIES.forEach(country => {
+    this.countries.forEach(country => {
       COUNTRIES_SCORES.push(country.details.score)
     })
 
@@ -283,14 +283,14 @@ class Team {
   }
 
   // This is where you get each one of the scores and mix it with random motivation, so not only the score counts.
-  getMotivation(COUNTRIES) {
-    const BEST_SCORE = this.getBestScore(COUNTRIES)
+  getMotivation(countries) {
+    const BEST_SCORE = this.getBestScore(countries)
 
-    for (let i = 0; i < COUNTRIES.length; i++) {
+    for (let i = 0; i < countries.length; i++) {
       const min = 70
-      const max = (COUNTRIES[i].details.score * 100) / BEST_SCORE
+      const max = (countries[i].details.score * 100) / BEST_SCORE
 
-      COUNTRIES[i].details.lastmotivation = Number(
+      countries[i].details.lastmotivation = Number(
         ((Math.random() * (max - min + 1)) + min).toFixed(2)
       )
     }
@@ -384,8 +384,6 @@ const thirdplace = predictMatch(thirdplaceContenders[0], thirdplaceContenders[1]
 
 
 function groupStageDrawer (parentEl, groupIndex) {
-  // let count = 0;
-  // let countryIndex = 0;
 
   let childEl = parentEl.firstElementChild
 
@@ -397,17 +395,6 @@ function groupStageDrawer (parentEl, groupIndex) {
 
   childEl.nextElementSibling.nextElementSibling.nextElementSibling.innerText = allGroupsList[groupIndex][3][0];
 
-
-  // for (let i = 0; i < divsCountry.length - 1; i++) {
-  //   childEl.nextElementSibling.innerText += allGroupsList[groupIndex][countryIndex][0];
-  //   console.log('hereA:', allGroupsList[groupIndex][countryIndex][0])
-  //   console.log('hereB:', allGroupsList[groupIndex][i][0])    
-  //   count++;
-  //   countryIndex++;
-
-  //   if (count == 3) {
-  //     return;
-  //   }
 }
 
 
